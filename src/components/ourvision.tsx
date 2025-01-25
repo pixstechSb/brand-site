@@ -1,9 +1,8 @@
 import React from 'react';
 import VisionItem from './visionitem'; 
-
 const Ourvision: React.FC = () => {
   return (
-    <div className="vision-container">
+    <div id="our-vision" className="vision-container">
       <div className="vision-left-column">
         <div className="vision-header">Our Vision</div>
         <div className="vision-content">

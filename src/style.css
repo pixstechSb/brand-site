@@ -1,6 +1,10 @@
 .Main-Container{
   position: relative;   
   background: #060D3A; 
+  min-height: 100vh; 
+  overflow: hidden;
+  padding-top: 100px;
+  padding-left: 50px;
  
 }
   
@@ -31,16 +35,19 @@
     justify-content: center; 
              
   }
-  .nav-items a {
+  .nav-items button {
+    background: none; 
+    border: none; 
     color: #BEB8B4; 
     font-size: 18px; 
-    font-family: 'Inter', sans-serif; 
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
-    text-transform: capitalize; 
-    line-height: 25.85px; 
-    word-wrap: break-word; 
-    text-decoration: none; 
-}
+    text-transform: capitalize;
+    line-height: 25.85px;
+    cursor: pointer; 
+    padding: 5px 10px; 
+    transition: color 0.3s ease, transform 0.3s ease; 
+  }
 .MainText {
   color: #F0E5DF; 
   font-size: 40px;
@@ -48,6 +55,16 @@
   font-weight: 600;
   text-transform: uppercase; 
   word-wrap: break-word; 
+  padding-left: 30px;
+}
+
+.main-img{
+  overflow: hidden;
+  display: flex; 
+  margin-right: 200px;
+  height: 700px;
+  width:700px
+
 }
 
   .contact-button {
@@ -87,6 +104,7 @@
   line-height: 2;
   justify-content: start;
   margin: auto 0;
+  color:#BEB8B4;
 }
 
 .separator {
@@ -94,18 +112,6 @@
   object-fit: contain;
   object-position: center;
   width: 20px;
-}
-
-
-@media (max-width: 991px) {
-  .breadcrumb {
-    max-width: 100%;
-    white-space: initial;
-  }
-  
-  .breadcrumbItem {
-    white-space: initial;
-  }
 }
 
 .Text-Container {
@@ -122,52 +128,66 @@ margin-right: 50px;
   font-size: 50px;
   margin-top: 100px; 
   margin-bottom: 60px; 
+  background: linear-gradient(
+    130deg,
+    rgb(69, 66, 227) 0%,      /* Start with dark blue */
+    rgb(75, 5, 116) 30%,   /* Lighter blue shade */
+    rgb(92, 4, 48) 60%,   /* Light purple shade (transition to pink) */
+    rgb(201, 238, 134) 100%   /* Final pink color */
+  );
+  -webkit-background-clip: text; /* Required for WebKit-based browsers */
+  background-clip: text; /* Standard property for broader compatibility */
+  -webkit-text-fill-color: transparent; /* Makes the text transparent to show the gradient */
 }
 
 .Sap-Text2 {
   font-size: 30px; 
+  color: #BEB8B4;
 }
 
+.Subservices{
+  padding-left: 100px;
+  margin-right: 80px;
+}
 /* Common Styles */
 .container {
   padding-top: 27px;
   padding-bottom: 27px;
   justify-content: center;
   align-items: center;
-  display: inline-flex;
+  display: flex;
+  overflow: hidden;
   margin-top: 200px; 
 }
 
-.card {
+.services-slider {
+  display: flex;
+  overflow: hidden;
+
+}
+
+.cardactive{
   width: 523px;
-  padding: 40px;
-  background: #303247;
+  padding-right: 30px;
   border-radius: 40px;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 16px;
-  display: inline-flex;
+  display: flex;
   margin-bottom: 60px;  
-  margin-left: 80px; 
 }
 
 .image-container {
   align-self: stretch;
-  height: 184px;
   padding-bottom: 30px;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 10px;
   display: flex;
+  gap: 10px;
 }
 
-.image {
-  width: 433px;
-  height: 154px;
-  border-radius: 30px;
-}
+
 
 .title-container,
 .description-container {
@@ -175,9 +195,14 @@ margin-right: 50px;
   padding-left: 10px;
   padding-right: 10px;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
-  display: inline-flex;
+  display:flex;
+  
+}
+.description-container {
+  width: 300px;
+  height: 200px;
 }
 
 .title {
@@ -198,15 +223,15 @@ margin-right: 50px;
   font-weight: 400;
   word-wrap: break-word;
 }
-
 .footer-container {
-  position: absolute;
-  left: 122px;
-  top: 1887px; /* Adjust as necessary, consider using relative units */
-  display: inline-flex;
+  display: flex;
+  overflow-x: hidden;
+ margin-top: 100px;
+ margin-bottom: 100px;
   justify-content: flex-start;
   align-items: center;
-  gap: 784px; /* Adjust for space between elements */
+  gap: 600px; 
+  margin-left: 10px;
 }
 
 .footer-text {
@@ -219,6 +244,7 @@ margin-right: 50px;
 
 .footer-text-content {
   flex: 1 1 0;
+  margin-left: 30px;
 }
 
 .text-light {
@@ -239,8 +265,9 @@ margin-right: 50px;
 
 .social-icons {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  overflow: hidden;
+   justify-content: 'space-between'; 
+   align-Items: 'flex-end';
   gap: 20px;
 }
 
@@ -250,77 +277,38 @@ margin-right: 50px;
   position: relative;
   background: #99969C;
   border-radius: 50%;
-  border: 1px solid black;
+  justify-content: flex-end;
+  align-items: flex-end;
+  display: flex;
+ 
 }
 
-.inner-icon {
-  position: absolute;
-}
 
-.inner-circle {
-  position: absolute;
-  background: black;
-}
-
-.inner-icon:nth-child(1) {
-  width: 9px;
-  height: 14.25px;
-  left: 10.5px;
-  top: 8.25px;
-}
-
-.inner-circle:nth-child(1) {
-  width: 7.71px;
-  height: 14.25px;
-  left: 0.64px;
-  top: 0;
-}
-
-.inner-icon:nth-child(2) {
-  width: 12px;
-  height: 13.5px;
-  left: 9px;
-  top: 8.25px;
-}
-
-.inner-circle:nth-child(2) {
-  width: 12.01px;
-  height: 11.82px;
-  left: 0;
-  top: 0.84px;
-}
-
-.inner-icon:nth-child(3) {
-  width: 13.5px;
-  height: 11.25px;
-  left: 8.25px;
-  top: 9.75px;
-}
-
-.inner-circle:nth-child(3) {
-  width: 13.5px;
-  height: 10.59px;
-  left: 0;
-  top: 0;
-}
 
 .aboutus-container {
+  overflow: hidden;
+  display: flex;
   padding: 26px 80px;
-  display: inline-flex;
   justify-content: center;
   align-items: center;
-  gap: 73px;
   background-color:#060D3A;
+  flex-wrap: wrap;
+  gap: 126px 278px;
+  font-family: Inter, sans-serif;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
+
 
 .aboutus-left-column {
   flex: 1 1 0;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
-  gap: 27px;
+  gap: 30px;
 }
+
 
 .aboutus-header {
   align-self: stretch;
@@ -333,18 +321,16 @@ margin-right: 50px;
 
 .aboutus-content {
   align-self: stretch;
-  height: 488px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   gap: 35px;
 }
 
 .aboutus-text-section {
   align-self: stretch;
-  height: 237px;
-  display: inline-flex;
+  display:flex;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 30px;
@@ -357,19 +343,19 @@ margin-right: 50px;
 }
 
 .aboutus-text {
-  flex: 1 1 0;
-  height: 216px;
+  flex:1 1 0;
   color: #BEB8B4;
-  font-size: 45px;
+  font-size: 30px;
   font-family: 'Inter', sans-serif;
   font-weight: 300;
   word-wrap: break-word;
+  
 }
 
 .aboutus-embrace-section {
   align-self: stretch;
   padding: 0 40px;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
@@ -382,15 +368,15 @@ margin-right: 50px;
 
 .aboutus-light-text, .aboutus-bold-text {
   color: #BEB8B4;
-  font-size: 45px;
+  font-size: 30px;
   font-family: 'Inter', sans-serif;
-  font-weight: 300;
+  font-weight: 500;
   word-wrap: break-word;
 }
 
 .aboutus-right-column {
-  width: 462px;
-  display: inline-flex;
+  flex:1 1 0;
+  display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
@@ -401,7 +387,7 @@ margin-right: 50px;
   padding: 10px 30px;
   background: #E1D4CD;
   border-radius: 40px;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -429,7 +415,7 @@ margin-right: 50px;
   padding: 10px 30px;
   background: #D9E09C;
   border-radius: 40px;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -448,7 +434,7 @@ margin-right: 50px;
   padding: 10px 20px;
   background: #CBAEFB;
   border-radius: 40px;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -463,6 +449,8 @@ margin-right: 50px;
 }
 
 .vision-container {
+  overflow: hidden;
+  display: flex;
   padding-left: 80px;
   padding-right: 80px;
   padding-top: 26px;
@@ -470,8 +458,9 @@ margin-right: 50px;
   justify-content: center;
   align-items: center;
   gap: 278px;
-  display: inline-flex;
-  background-color:#060D3A; 
+  background-color:#060D3A;
+  margin-top: 50px; 
+  margin-bottom: 30px;
 }
 
 .vision-left-column {
@@ -494,7 +483,6 @@ margin-right: 50px;
 
 .vision-content {
   align-self: stretch;
-  height: 378px;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -504,8 +492,16 @@ margin-right: 50px;
 
 .vision-title {
   align-self: stretch;
-  height: 192px;
-  color: #4A18FA;
+  background: linear-gradient(
+    130deg,
+    rgb(69, 66, 227) 0%,      /* Start with dark blue */
+    rgb(92, 4, 48) 30%,   /* Lighter blue shade */
+    rgb(92, 4, 48) 60%,   /* Light purple shade (transition to pink) */
+    rgb(92, 4, 48) 100%   /* Final pink color */
+  );
+  -webkit-background-clip: text; /* Required for WebKit-based browsers */
+  background-clip: text; /* Standard property for broader compatibility */
+  -webkit-text-fill-color: transparent; /* Makes the text transparent to show the gradient */
   font-size: 50px;
   font-family: 'Inter', sans-serif;
   font-weight: 300;
@@ -590,16 +586,22 @@ margin-right: 50px;
   font-family: Inter, sans-serif;
   justify-content: start;
   flex-grow: 1;
-  width: 197px;
-  margin: auto 0;
+  width: 200px;
+  margin-right: 30px;
+  margin-left: 30px;
+ 
+  
 }
 
 .service-cardHighlighted {
   border-radius: 60px;
   background-color: rgba(48, 50, 71, 1);
-  padding: 0 55px 0 51px;
+  padding: 0 50px 0 30px;
   position: relative;
   min-height: 385px;
+  margin-left: 30px;
+  margin-right: 30px;
+ 
 }
 
 .service-icon {
@@ -637,10 +639,10 @@ margin-right: 50px;
   background-color: rgba(6, 14, 58, 1);
   position: absolute;
   display: flex;
-  width: 90px;
+  width: 70px;
   align-items: center;
   justify-content: center;
-  height: 90px;
+  height: 70px;
   right: -17px;
   bottom: -24px;
   padding: 10px;
@@ -650,8 +652,8 @@ margin-right: 50px;
   border-radius: 90px;
   background-color: rgba(48, 50, 71, 1);
   display: flex;
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   align-items: center;
   justify-content: center;
 }
@@ -664,10 +666,13 @@ margin-right: 50px;
 }
 
 .service-container {
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color:#060D3A;
+  margin-top: 50px;
+  margin-bottom: 80px;
 }
 
 .service-header {
@@ -718,18 +723,19 @@ margin-right: 50px;
 
 .servicesGrid {
   display: flex;
-  margin-top: 15px;
+  overflow: hidden;
+  margin-top: 35px;
+  margin-bottom: 30px;
   width: 100%;
   align-items: center;
-  gap: 80px;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
-  padding: 27px 80px;
 }
 
 
 
 .contact-container {
+  overflow-x: hidden;
   display: flex;
   align-items: center;
   gap: 126px 278px;
@@ -738,6 +744,8 @@ margin-right: 50px;
   flex-wrap: wrap;
   padding: 26px 80px;
   background-color:#060D3A; 
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .contact-leftSection {
@@ -762,7 +770,7 @@ margin-right: 50px;
   -webkit-background-clip: text; /* Required for WebKit-based browsers */
   background-clip: text; /* Standard property for broader compatibility */
   -webkit-text-fill-color: transparent; /* Makes the text transparent to show the gradient */
-  font-size: 80px;
+  font-size: 70px;
   letter-spacing: -3.2px;
   margin: 0;
 }
@@ -825,6 +833,7 @@ margin-right: 50px;
 }
 
 .formSection {
+  flex:1 1 0;
   border-radius: 60px;
   background-color: #303247;
   align-self: stretch;
@@ -855,10 +864,8 @@ margin-right: 50px;
   letter-spacing: -1.2px;
 }
 
-.contact-helloIcon {
-  width: 23px;
-  aspect-ratio: 0.82;
-  object-fit: contain;
+.contactsvg {
+  margin-bottom: 20px; 
 }
 
 .formDescription {
@@ -879,9 +886,10 @@ margin-right: 50px;
   display: flex;
   flex-direction: column;
   gap: 57px;
+  
 }
 
-.formField {
+ .formField {
   border-bottom: 1px solid #8c8677;
   display: flex;
   width: 457px;
@@ -889,17 +897,19 @@ margin-right: 50px;
   padding-bottom: 10px;
   align-items: center;
   gap: 3px;
+  
+  
 }
 
 .fieldIndicator {
   width: 0;
-  height: 49px;
+  height: 25px;
   border: 2px solid #ac0860;
 }
 
 .fieldLabel {
   color: #beb8b4;
-  font-size: 24px;
+  font-size: 15px;
   font-weight: 300;
 }
 
@@ -907,7 +917,7 @@ margin-right: 50px;
   background: transparent;
   border: none;
   color: #beb8b4;
-  font-size: 24px;
+  font-size: 15px;
   width: 100%;
   outline: none;
 }
@@ -1062,10 +1072,14 @@ margin-right: 50px;
 }
 
 .Career-container {
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color:#060D3A;
+  margin-top: 50px;
+  margin-bottom: 80px;
+
 }
 
 .Career-header {
@@ -1075,26 +1089,24 @@ margin-right: 50px;
   flex-direction: column;
   font-family: Inter, sans-serif;
   color: rgba(190, 184, 180, 1);
-  text-align: center;
+  padding-left: 50px;
   justify-content: start;
 }
 
 
 .Career-title-header {
-  border-radius: 0;
-  align-self: center;
-  width: 904px;
+  align-items: flex-start;
   max-width: 100%;
   font-size: 80px;
   letter-spacing: -3.2px;
-  padding: 0 16px 21px;
-  word-wrap: break-word;
+  padding-left: 80px;
 }
 
 .Career-highlightedText {
   color: #D92584; 
   font-size: 80px; 
   word-wrap: break-word;
+  padding-left: 200px;
 }
 
 .Career-subtitle {
@@ -1104,17 +1116,27 @@ margin-right: 50px;
 }
 
 .Career-subtitleBold {
-  font-weight: 500;
-  color: rgba(190, 184, 180, 1);
+  color: #BEB8B4;
+    font-size: 30px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
 }
 
-
+.Career-subtitle2{
+  color: #BEB8B4;
+    font-size: 30px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    align-items: center;
+    word-wrap: break-word;
+}
 
 .Career-cardsContainer {
   display: flex;
   margin-top: 63px;
   width: 100%;
-  align-items: center;
+  align-items: flex-start;
   gap: 62px;
   justify-content: center;
   flex-wrap: wrap;
@@ -1159,14 +1181,24 @@ margin-right: 50px;
   align-items: flex-start;
   gap: 52px;
   display: flex;
+
 }
 
 .mainsubtitle {
   align-self: stretch;
-  color: #4A18FA;
-  font-size: 65px;
+  background: linear-gradient(
+    130deg,
+    rgb(69, 66, 227) 0%,      /* Start with dark blue */
+    rgb(92, 4, 48) 30%,   /* Lighter blue shade */
+    rgb(92, 4, 48) 60%,   /* Light purple shade (transition to pink) */
+   rgb(230, 230, 155)100%
+  );
+  -webkit-background-clip: text; /* Required for WebKit-based browsers */
+  background-clip: text; /* Standard property for broader compatibility */
+  -webkit-text-fill-color: transparent; /* Makes the text transparent to show the gradient */
+  font-size: 50px;
   font-family: 'Inter', sans-serif;
-  font-weight: 300;
+  font-weight: 200;
   word-wrap: break-word;
 }
 
@@ -1186,6 +1218,7 @@ margin-right: 50px;
 
 .maintext {
   flex: 1 1 0;
+  
 }
 
 .maintext-part {
@@ -1194,6 +1227,7 @@ margin-right: 50px;
   font-family: 'Inter', sans-serif;
   font-weight: 300;
   word-wrap: break-word;
+  
 }
 
 .mainhighlighted-text {
@@ -1210,89 +1244,658 @@ margin-right: 50px;
   height: 659px;
 }
 .Homepagecontainer {
+  overflow-x: hidden;
   display: flex;
   flex-direction: column; 
   min-height: 100vh; 
   background-color:#060D3A; 
 }
 
-.progress-container {
-  width: 1230px;
-  height: 80px;
-  display: inline-flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 43px;
-}
-
-.progress-imageContainer {
+.nav-container {
   display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+
+
+.progress-container {
+  width: 900px;
+  height: 80px;
+  display:flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 24px;
-}
-
-.progress-image {
-  width: 80px;
-  height: 80px;
-  position: relative;
-}
-
-.progress-circle {
-  width: 66.67px;
-  height: 66.67px;
-  position: absolute;
-  border: 2px solid;
-}
-
-.progress-circle-first {
-  left: 6.67px;
-  top: 6.67px;
-  border-color: #6B696E;
-}
-
-.progress-circle-second {
-  left: 6.67px;
-  top: 6.67px;
-  border-color: #D2D2D2;
-}
-
-.progress-rectangle {
-  width: 13.33px;
-  height: 26.67px;
-  position: absolute;
-}
-
-.progress-rectangle-first {
-  left: 26.67px;
-  top: 26.67px;
-  border: 2px solid #6B696E;
-}
-
-.progress-rectangle-second {
-  left: 40px;
-  top: 26.67px;
-  border: 2px solid #D2D2D2;
+  gap: 50px;
+ 
 }
 
 .progress-lineContainer {
-  width: 1003px;
-  height: 3.53px;
+  width: 900px;
+  height: 3px;
   position: relative;
+  margin-left: 30px;
 }
 
 .progress-backgroundLine {
-  width: 1003px;
+  width: 900px;
   height: 3px;
   position: absolute;
   background: #D9D9D9;
-  top: 0.53px;
 }
 
 .progressLine {
-  width: 273.81px;
+  width: 100%;
   height: 3px;
   position: absolute;
-  background: linear-gradient(0deg, #FF0000 0%, #FF0000 100%), 
-              linear-gradient(173deg, #4A18FA 0%, #F30796 45%, #7D6559 100%);
+  background:red;
 }
+
+.Design-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.Design-content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.Design-header {
+  display: flex;
+  height: 117px;
+  width: 100%;
+  flex-direction: column;
+  font-family: Inter, sans-serif;
+  text-align: center;
+}
+
+.Design-jobTitle {
+  color: rgba(190, 184, 180, 1);
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.Design-fullTime {
+  text-transform: lowercase;
+  color: rgba(190, 184, 180, 1);
+}
+
+.Design-headline {
+  background: linear-gradient(
+    130deg,
+    rgb(69, 66, 227) 0%,      /* Start with dark blue */
+    rgb(219, 133, 190) 30%,   /* Lighter blue shade */
+    rgb(255, 150, 241) 60%,   /* Light purple shade (transition to pink) */
+    rgb(219, 219, 18)100% 
+  );
+  -webkit-background-clip: text; /* Required for WebKit-based browsers */
+  background-clip: text; /* Standard property for broader compatibility */
+  -webkit-text-fill-color: transparent;
+  font-size: 50px;
+  font-weight: 300;
+  align-self: center;
+  margin-top: 28px;
+  width: 631px;
+}
+
+.Design-socialSection {
+  display: flex;
+  margin-top: 78px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.Design-iconGroup {
+  display: flex;
+  min-width: 240px;
+  width: 340px;
+  align-items: center;
+  gap: 29px;
+  margin: auto 0;
+}
+
+.Resume-uploadContainer {
+  align-self: center;
+  display: flex;
+  margin-top: 23px;
+  width: 247px;
+  flex-direction: column;
+  text-align: center;
+  font: 19px Inter, sans-serif;
+}
+
+.Resume-uploadWrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.Resume-resumeLabel {
+  color: rgba(100, 116, 151, 1);
+  font-weight: 400;
+  align-self: flex-start;
+}
+
+.Resume-required {
+  color: rgba(244, 71, 166, 1);
+}
+
+.Resume-browseButton {
+  border-radius: 30px;
+  background-color: rgba(71, 60, 13, 1);
+  margin-top: 17px;
+  min-height: 52px;
+  width: 100%;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 600;
+  padding: 15px;
+  border: 1px dashed rgba(230, 178, 23, 1);
+  cursor: pointer;
+}
+
+.Resume-hiddenInput {
+  display: none;
+}
+
+.Expform-container {
+  width: 1000px;
+  height: 1200px;
+  padding-left: 100px;
+  padding-right: 100px;
+  background: #303247;
+  border-radius: 50px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-left: 250px;
+  gap: 76px;
+  display: inline-flex;
+}
+
+.Expform-content {
+  align-self: stretch;
+  height: 709px;
+  background: #303247;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 42px;
+  display: flex;
+}
+
+.Expform-fieldRow {
+  align-self: stretch;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 60px;
+  display: inline-flex;
+}
+
+.Expform-field {
+  flex: 1 1 0;
+  height: 47px;
+  padding-bottom: 25px;
+  padding-right: 10px;
+  border-bottom: 1px solid #8C8677;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  display: flex;
+}
+
+.Expform-selectField {
+  flex: 1 1 0;
+  height: 79px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #8C8677;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 14px;
+  display: inline-flex;
+}
+
+.Expform-footer {
+  align-self: stretch;
+  justify-content: center;
+  align-items: center;
+  gap: 15.75px;
+  display: inline-flex;
+}
+
+.Expform-button {
+  flex: 1 1 0;
+  height: 54.6px;
+  padding: 10.5px;
+  border-radius: 75.25px;
+  border: 1.05px solid white;
+  justify-content: center;
+  align-items: center;
+  gap: 10.5px;
+  display: flex;
+}
+
+.Expform-button-primary {
+  background: #E6B217;
+  color: black;
+  font-weight: 600;
+}
+
+.Expform-button-cancel {
+  color: white;
+  font-weight: 400;
+}
+.Expform-label {
+  color: #BEB8B4;
+  font-size: 18px;
+  font-family: 'Inter', sans-serif; 
+  font-weight: 400;
+}
+
+.Expform-highlight {
+  color: #F447A6;
+}
+
+.dropdown-container {
+  position: relative;
+ 
+}
+
+.dropdown-dropdownItem {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dropdown-dropdownList {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  max-height: 200px; 
+  overflow-y: auto; 
+}
+
+.searchBar {
+  border-radius: 80px;
+  background-color: rgba(38, 43, 75, 1);
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  padding: 0 60px;
+}
+
+.searchFilters {
+  display: flex;
+  min-width: 240px;
+  align-items: center;
+  gap: 40px 54px;
+  color: rgba(190, 184, 180, 1);
+  text-align: center;
+  flex: 1;
+  margin: auto 0;
+  padding: 0 4px;
+  font: 500 28px Inter, sans-serif;
+}
+
+.searchItem {
+  display: flex;
+  min-width: 240px;
+  align-items: center;
+  flex: 1;
+  margin: auto 0;
+}
+
+.searchItemLabel {
+  flex: 1;
+  min-width: 240px;
+  margin: auto 0;
+}
+
+.searchItemIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 24px;
+  align-self: stretch;
+  margin: auto 0;
+}
+
+.searchControls {
+  display: flex;
+  min-width: 100px;
+  padding-left: 14px;
+  align-items: center;
+  gap: 21px;
+  flex: 1;
+  margin: auto 0;
+}
+
+.searchInputWrapper {
+  border-radius: 50px;
+  background-color: rgba(86, 89, 111, 1);
+  display: flex;
+  min-width: 200px;
+  min-height: 70px;
+  align-items: center;
+  gap: 7px;
+  flex: 1;
+  padding: 0 20px;
+}
+
+.search-iconWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 34px;
+  margin: auto 0;
+}
+
+.searchInputIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 34px;
+}
+
+.searchInput {
+  background: transparent;
+  border: none;
+  color: rgba(190, 184, 180, 1);
+  font: 500 18px Inter, sans-serif;
+  width: 100%;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.searchButton {
+  border-radius: 50px;
+  background-color: rgba(230, 178, 23, 1);
+  display: flex;
+  min-width: 200px;
+  min-height: 70px;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 1);
+  border: none;
+  cursor: pointer;
+  flex: 1;
+  font: 600 16px Inter, sans-serif;
+}
+
+.searchButtonText {
+  flex: 1;
+  text-align: center;
+}
+
+.Jobdetail-container {
+  border-radius: 30px;
+  display: flex;
+  min-width: 350px;
+  max-width: 560px;
+  flex-direction: column;
+  font-family: Inter, sans-serif;
+  justify-content: center;
+  padding: 0 80px;
+  border: 1px solid rgba(55, 71, 79, 1);
+  margin-top: 100px;
+  margin-left: 100px;
+}
+
+.Jobdetail-header {
+  display: flex;
+  flex-direction: column;
+  max-width: 283px;
+}
+
+.Jobdetail-titleSection {
+  display: flex;
+  flex-direction: column;
+  color: rgba(153, 150, 156, 1);
+}
+
+.Jobdetail-title {
+  font-size: 40px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.Jobdetail-company {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.Jobdetail-applyButton {
+  border-radius: 154px;
+  background-color: rgba(230, 178, 23, 1);
+  margin-top: 17px;
+  width: 160px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 600;
+  line-height: 2;
+  padding: 10px 27px;
+  border: none;
+  cursor: pointer;
+}
+
+.Jobdetail-content {
+  margin-top: 84px;
+  width: 100%;
+}
+
+.Jobdetail-contentHeader {
+  color: rgba(153, 150, 156, 1);
+  font-weight: 400;
+}
+
+.Jobdetail-sectionTitle {
+  font-size: 40px;
+  margin: 0;
+}
+
+.Jobdetail-subtitle {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.detailsSection {
+  margin-top: 56px;
+  max-width: 258px;
+}
+
+.detailContainer {
+  margin-bottom: 35px;
+}
+
+.detailHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 22px;
+  color: rgba(153, 150, 156, 1);
+  font-weight: 400;
+}
+
+.detailIcon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.badge {
+  border-radius: 50px;
+  background-color: rgba(38, 43, 75, 1);
+  color: rgba(166, 170, 190, 1);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2;
+  padding: 9px 10px;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.salaryContainer {
+  border-radius: 50px;
+  background-color: rgba(38, 43, 75, 1);
+  display: flex;
+  margin-top: 16px;
+  min-height: 45px;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  color: rgba(166, 170, 190, 1);
+  font-weight: 500;
+  line-height: 2;
+  padding: 9px 5px;
+  justify-content: center;
+}
+
+.salaryRange {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.currencyIcon {
+  width: 19px;
+  height: 19px;
+  object-fit: contain;
+}
+
+.joblist-container {
+  display: flex;
+  min-width: 320px;
+  max-width: 600px;
+  flex-direction: column;
+}
+
+.joblist-header {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  color: rgba(166, 170, 190, 1);
+  font: 20px/1 Inter, sans-serif;
+}
+
+.joblist-sortInfo {
+  width: 100%;
+  font-weight: 400;
+  text-align: center;
+}
+
+.joblist-sectionTitle {
+  font-weight: 500;
+  margin-top: 25px;
+}
+
+.jobList {
+  display: flex;
+  margin-top: 42px;
+  width: 100%;
+  flex-direction: column;
+  gap: 51px;
+}
+
+.jobCardContainer {
+  border-radius: 50px;
+  background-color: rgba(38, 43, 75, 1);
+  display: flex;
+  min-height: 349px;
+  padding: 0 31px;
+  align-items: center;
+}
+
+.jobCardContent {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  font-family: Inter, sans-serif;
+  color: rgba(166, 170, 190, 1);
+}
+
+.jobHeader {
+  margin-bottom: 30px;
+}
+
+.jobTitle {
+  font-size: 40px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.jobLocation {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 8px 0 0;
+}
+
+.requirementsList {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+}
+
+.bulletContainer {
+  display: flex;
+  align-items: start;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.bulletPoint {
+  border-radius: 50%;
+  min-height: 10px;
+  width: 10px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  margin-top: 9px;
+}
+
+.bulletText {
+  color: rgba(166, 170, 190, 1);
+  flex: 1;
+  font: 400 20px/27px Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.imageContainer {
+  display: flex;
+  min-height: 152px;
+  align-items: center;
+}
+
+.jobImage {
+  aspect-ratio: 0.81;
+  object-fit: contain;
+  width: 54px;
+}
+.jobListingsContainer {
+  display: flex; 
+  gap: 50px;
+  padding: 20px;
+  margin-left: 200px;
+}
+
+.jobDetailsContainer {
+  width: 350px; 
+}
+
+.Searchbarcontainer{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+

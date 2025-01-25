@@ -28,12 +28,12 @@ function JobApplyForm() {
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
-        console.log(resume)
         // Handle form submission here
         console.log('Form submitted!');
     };
 
     const handleFileChange = (event: any) => {
+        console.log(resume)
         setResume(event.target.files[0]);
     };
 
@@ -137,7 +137,7 @@ function JobApplyForm() {
                                     Last Name <span aria-hidden="true">*</span>
                                 </label>
                                 <input type="text" id="lastName" value={lastName}
-                                    onChange={(e) => setLastName(e.target.value)}/>
+                                    onChange={(e) => setLastName(e.target.value)} />
                             </div>
                             <div className="form-field">
                                 <label htmlFor="emailId">Email ID <span>*</span></label>
@@ -150,10 +150,10 @@ function JobApplyForm() {
                                 />
                             </div>
                             <div className="form-field">
-                                <label htmlFor="contactNumber">City</label>
+                                <label htmlFor="city">City</label>
                                 <input
                                     type="tel"
-                                    id="contactNumber"
+                                    id="city"
                                     value={city}
                                     onChange={(e) => setCity(e.target.value)}
                                 />

@@ -3,7 +3,7 @@ import '../style.css';
 
 const AboutUs: React.FC = () => {
   return (
-    <div className="aboutus-container">
+    <div id="about-us" className="aboutus-container">
       <div className="aboutus-left-column">
         <div className="aboutus-header">About us</div>
         <div className="aboutus-content">

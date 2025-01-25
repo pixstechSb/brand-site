@@ -1,10 +1,8 @@
 import '../CareersPage/careers.css'
-import Navigationbar from '../Navigationbar';
 import Card from './widgets/cardComponent'
 const Careers = () => {
   return (
     <>
-    <Navigationbar />
     <div className="careers-body">
       <div>{headerText()}</div>
         <div className="card-grid">

@@ -1,1 +1,1 @@
-export const apiBaseUri = "https://5ti44g2yqfeypk2mq2rbnz7h4m0dkpsm.lambda-url.ap-south-1.on.aws/career";
+export const apiBaseUri = "https://5ti44g2yqfeypk2mq2rbnz7h4m0dkpsm.lambda-url.ap-south-1.on.aws";

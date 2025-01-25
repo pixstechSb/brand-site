@@ -2,7 +2,7 @@ import React from 'react';
 import '../style.css';
 
 interface ServiceCardProps {
-    icon: React.ReactNode; // Accepts any React node, including an SVG
+    icon: React.ReactNode; 
     title: string;
     description: string;
     isHighlighted?: boolean;

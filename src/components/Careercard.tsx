@@ -2,12 +2,11 @@ import React from 'react';
 
 
  interface CareerCardProps {
-    icon: string;
+    icon: React.ReactNode; 
     title: string;
     description: string;
     type: string;
-    iconAlt: string;
-    timeIcon: string;
+    timeIcon: React.ReactNode;
   }
 
 const CareerCard: React.FC<CareerCardProps> = ({
@@ -15,7 +14,6 @@ const CareerCard: React.FC<CareerCardProps> = ({
   title,
   description,
   type,
-  iconAlt,
   timeIcon
 }) => {
   const cardStyle = {
@@ -26,7 +24,7 @@ const CareerCard: React.FC<CareerCardProps> = ({
 
   return (
     <div className={`${'Career-card'} ${cardStyle}`}>
-      <img loading="lazy" src={icon} className="Career-icon" alt={iconAlt} />
+      <div className="Career-icon">{icon}</div>
       <div className="Career-content">
         <div className="Career-textContent">
           <div className="Career-title">{title}</div>
@@ -35,7 +33,7 @@ const CareerCard: React.FC<CareerCardProps> = ({
         <div className="Career-footer">
           <div className="Career-type">{type}</div>
           <div className="Career-timeIconWrapper">
-            <img loading="lazy" src={timeIcon} className="Career-timeIcon" alt="" />
+            <div className="Career-timeIcon">{timeIcon}</div>
           </div>
         </div>
       </div>

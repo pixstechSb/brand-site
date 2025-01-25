@@ -33,7 +33,6 @@ const CareerListing = () => {
   }, []); 
 
   const handleTileClick = (job: jobListType) => {
-    console.log(isJobVisible)
     setJobVisible(true);
     setSelectedJob(job);
   };
@@ -138,7 +137,7 @@ const CareerListing = () => {
 
   return (<>
   <Navigationbar/>
-  <div>{renderHeader()}</div>
+  <div className='listing-main-container'>{renderHeader()}</div>
   </>);
 };
 
