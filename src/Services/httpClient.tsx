@@ -8,9 +8,10 @@ export const createHttpClient = (ApiUrl:string) => {
     headers:{
       "Access-Control-Allow-Origin":"*",
       "Access-Control-Allow-Credentials":"true",
+      "Access-Control-Allow-Headers" : "Content-Type",
       "Connection":"	keep-alive"
     },
-    timeout: 10000, // Optional timeout
+    timeout: 10000, 
   });
   
   // httpClient.interceptors.request.use(
