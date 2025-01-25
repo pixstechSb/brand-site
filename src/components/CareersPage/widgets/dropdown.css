@@ -1,0 +1,39 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+    font-family: 'Poppins';
+    font-size: 15px;
+    padding: 0px 25px;
+    color: #ffffff;
+  }
+  
+  .dropdown-toggle {
+    padding: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    outline: none;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    margin-top: 5px;
+    border-radius: 4px;
+    font-family: 'Poppins';
+  }
+  
+  .dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    color: #000000;
+
+  }
+  
+  .dropdown-icon{
+    padding-left: 15px;
+  }
+  .dropdown-item:hover {
+    background-color: #f0f0f0;
+  }

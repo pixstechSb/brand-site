@@ -1,0 +1,57 @@
+.careers-body
+{
+    height: 100%;
+    background: #060D3A;
+    justify-content: center ;
+}
+
+.careers-header
+{
+    font-size: 32px;
+    background: linear-gradient(to top, #0a439f, #cf23cf);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+    font-weight: 400;
+    font-family: 'Poppins';
+    text-align: center;
+}
+
+.careers-subheader
+{
+    font-size: xx-large;
+    background: linear-gradient(to top, #0a439f, #cf23cf);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+    font-weight: 400;
+    font-family: 'Poppins';
+    text-align: center;
+    margin: 0px 0px;
+}
+
+.careers-content
+{
+    font-size: smaller;
+    color: gray;
+    font-weight: 100;
+    font-family: 'Poppins';
+    text-align: center;
+    margin: 0px 0px;
+}
+
+.card-container
+{
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    height: 100vh;
+    background-color: gray;
+}
+
+.card-grid{
+    width: 100%;
+    display: flex;
+    gap: 6rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10vh;
+}
