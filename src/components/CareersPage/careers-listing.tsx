@@ -17,7 +17,7 @@ const CareerListing = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await listJobs("/jobs","Chennai","EarlyBird"); 
+        const response = await listJobs("career","jobs","Chennai","EarlyBird"); 
         if (!response.ok) {
           throw new Error(`Error: ${response.status}`); 
         }
