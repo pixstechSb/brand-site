@@ -19,6 +19,10 @@ export const listJobs = async ( controller:string,uri:string,experience:string, 
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            "Access-Control-Allow-Origin":"*",
+      "Access-Control-Allow-Credentials":"true",
+      "Access-Control-Allow-Headers" : "Content-Type",
+      "Connection":"	keep-alive"
         },
         body: JSON.stringify({
           "location":experience,
