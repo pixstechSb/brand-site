@@ -1,5 +1,4 @@
 import '../CareersPage/careers.css'
-import Contact from '../Contact';
 import Navigationbar from '../Navigationbar';
 import Card from './widgets/cardComponent'
 const Careers = () => {

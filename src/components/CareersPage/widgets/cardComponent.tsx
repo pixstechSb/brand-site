@@ -1,4 +1,3 @@
-import CareerListing from '../careers-listing';
 import '../widgets/cardComponent.css'
 import { useNavigate } from "react-router-dom";
 const Card = ({imgSrc,title,subtitle,type}: any) => {

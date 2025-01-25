@@ -5,7 +5,6 @@ import AboutUs from './components/AboutUs';
 import Services from './components/Services';
 import CareersSection from './components/CareersSection';
 import Contact from './components/Contact';
-import Ourvision from './components/Ourvision';
 
 const App: React.FC = () => {
   return (
@@ -13,7 +12,6 @@ const App: React.FC = () => {
       <Homepage/>
       <Routes>
         <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/ourvision" element={<Ourvision />} />
         <Route path="/services" element={<Services />} />
         <Route path="/careerssection" element={<CareersSection />} />
         <Route path="/contactus" element={<Contact />} />

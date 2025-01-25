@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './careers-apply.css'
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Navigationbar from '../Navigationbar';
-import Contact from '../Contact';
 
 
 function JobApplyForm() {
@@ -29,6 +28,7 @@ function JobApplyForm() {
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
+        console.log(resume)
         // Handle form submission here
         console.log('Form submitted!');
     };
@@ -136,7 +136,8 @@ function JobApplyForm() {
                                 <label htmlFor="lastName">
                                     Last Name <span aria-hidden="true">*</span>
                                 </label>
-                                <input type="text" id="lastName" />
+                                <input type="text" id="lastName" value={lastName}
+                                    onChange={(e) => setLastName(e.target.value)}/>
                             </div>
                             <div className="form-field">
                                 <label htmlFor="emailId">Email ID <span>*</span></label>
@@ -153,8 +154,8 @@ function JobApplyForm() {
                                 <input
                                     type="tel"
                                     id="contactNumber"
-                                    value={contactNumber}
-                                    onChange={(e) => setContactNumber(e.target.value)}
+                                    value={city}
+                                    onChange={(e) => setCity(e.target.value)}
                                 />
                             </div>
                             <div className="form-field">

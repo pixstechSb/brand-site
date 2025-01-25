@@ -33,6 +33,7 @@ const CareerListing = () => {
   }, []); 
 
   const handleTileClick = (job: jobListType) => {
+    console.log(isJobVisible)
     setJobVisible(true);
     setSelectedJob(job);
   };
