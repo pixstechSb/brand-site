@@ -16,7 +16,6 @@ import WebDesign from './components/SubServices/WebDesign';
 import ITConsulting from './components/SubServices/ITConsulting';
 import Careers from './components/CareersPage/careers';
 import CareerListing from './components/CareersPage/careers-listing';
-import JobApplyForm from './components/CareersPage/careers-apply';
 
 
 const App: React.FC = () => {
