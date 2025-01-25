@@ -5,7 +5,7 @@ export const listJobs = async ( controller:string,uri:string,experience:string, 
     const httpClient = createHttpClient(`${apiBaseUri}${controller}${uri}`)
     try {
       console.log("HttpClient",httpClient)
-      const response = await httpClient.post(`${apiBaseUri}${uri}`, {"location": location, "experience": experience} );
+      const response = await httpClient.post(`${apiBaseUri}${controller}${uri}`, {"location": location, "experience": experience} );
       return response.data;
     } catch (error) {
       console.log("API fetch fail", error)
