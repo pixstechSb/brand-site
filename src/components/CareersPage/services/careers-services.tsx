@@ -1,5 +1,5 @@
 //import { createHttpClient } from '../../../Services/httpClient';
-import {apiBaseUri} from '../../../utils/constants';
+import { apiBaseUri } from '../../../utils/constants';
 
 // export const listJobs = async ( controller:string,uri:string,experience:string, location:string) => {
 //     const httpClient = createHttpClient(`${apiBaseUri}${controller}${uri}`)
@@ -13,57 +13,56 @@ import {apiBaseUri} from '../../../utils/constants';
 //     }
 //   };
 
-export const listJobs = async ( controller:string,uri:string,experience:string, location:string) => {
+export const listJobs = async (controller: string, uri: string, experience: string, location: string) => {
   try {
     const response = await fetch(`${apiBaseUri}${controller}${uri}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            "Access-Control-Allow-Origin":"*",
-      "Access-Control-Allow-Credentials":"true",
-      "Access-Control-Allow-Headers" : "Content-Type",
-      "Connection":"	keep-alive"
-        },
-        body: JSON.stringify({
-          "location":experience,
-          "experience":location
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Connection": "	keep-alive"
+      },
+      body: JSON.stringify({
+        "location": experience,
+        "experience": location
       }),
     });
 
     if (!response.ok) {
-      console.log("Not ok error :",response.statusText)
-        throw new Error('Network response was not ok');
+      console.log("Not ok error :", response.statusText)
+      throw new Error('Network response was not ok');
     }
     const data = await response.json();
     return data;
-} catch (error) {
+  } catch (error) {
     console.error('Fetch error:', error);
     throw error;
+  }
 }
-}
-  
-export const generateGuidfetch = async ( controller:string,uri:string) => {
+
+export const applyJobAPI = async (controller: string, uri: string, jobApply: any) => {
   try {
     const response = await fetch(`${apiBaseUri}${controller}${uri}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            "Access-Control-Allow-Origin":"*",
-      "Access-Control-Allow-Credentials":"true",
-      "Access-Control-Allow-Headers" : "Content-Type",
-      "Connection":"	keep-alive"
-        },
-        
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Connection": "	keep-alive"
+      },
+      body: jobApply,
     });
 
     if (!response.ok) {
-      console.log("Not ok error :",response.statusText)
-        throw new Error('Network response was not ok');
+      console.log("Not ok error :", response.statusText)
+      throw new Error('Network response was not ok');
     }
     const data = await response.json();
     return data;
-} catch (error) {
-    console.error('Fetch error:', error);
-    throw error;
-}
+  } catch (error) {
+
+  }
 }

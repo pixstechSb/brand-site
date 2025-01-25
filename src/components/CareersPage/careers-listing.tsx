@@ -3,7 +3,7 @@ import Dropdown from './widgets/dropdown';
 import { jobListType } from '../CareersPage/types/careers';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { generateGuidfetch, listJobs } from './services/careers-services';
+import { listJobs } from './services/careers-services';
 import Navigationbar from '../Navigationbar';
 
 const CareerListing = () => {
@@ -34,12 +34,7 @@ const CareerListing = () => {
 
   const generateGuid = async () => {
     try {
-      const response = await generateGuidfetch("/career",""); 
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status}`); 
-      }
-      const result = await response.json();
-      setJobList(result); 
+      console.log("on click")
     } catch (err) {
     } finally {
       setLoading(false); // Set loading to false after fetch is complete
