@@ -42,3 +42,28 @@ export const listJobs = async ( controller:string,uri:string,experience:string, 
 }
 }
   
+export const generateGuidfetch = async ( controller:string,uri:string) => {
+  try {
+    const response = await fetch(`${apiBaseUri}${controller}${uri}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            "Access-Control-Allow-Origin":"*",
+      "Access-Control-Allow-Credentials":"true",
+      "Access-Control-Allow-Headers" : "Content-Type",
+      "Connection":"	keep-alive"
+        },
+        
+    });
+
+    if (!response.ok) {
+      console.log("Not ok error :",response.statusText)
+        throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
+} catch (error) {
+    console.error('Fetch error:', error);
+    throw error;
+}
+}

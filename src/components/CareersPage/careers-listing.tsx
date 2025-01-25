@@ -3,7 +3,7 @@ import Dropdown from './widgets/dropdown';
 import { jobListType } from '../CareersPage/types/careers';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { listJobs } from './services/careers-services';
+import { generateGuidfetch, listJobs } from './services/careers-services';
 import Navigationbar from '../Navigationbar';
 
 const CareerListing = () => {
@@ -31,6 +31,20 @@ const CareerListing = () => {
 
     fetchData(); // Call the async function
   }, []); 
+
+  const generateGuid = async () => {
+    try {
+      const response = await generateGuidfetch("/career",""); 
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`); 
+      }
+      const result = await response.json();
+      setJobList(result); 
+    } catch (err) {
+    } finally {
+      setLoading(false); // Set loading to false after fetch is complete
+    }
+  };
 
   const handleTileClick = (job: jobListType) => {
     console.log(isJobVisible)
@@ -73,7 +87,7 @@ const CareerListing = () => {
               <input placeholder="Enter skills" className="search-input" />
               <img src="src/assets/cancel.png" alt="Clear" height="18" width="18" />
             </div>
-            <button className="find-jobs">Find Jobs</button>
+            <button className="find-jobs" onClick={() => generateGuid()}>Find Jobs</button>
           </div>
         </div>
       </div>
