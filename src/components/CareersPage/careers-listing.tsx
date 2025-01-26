@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate,useLocation } from 'react-router-dom';
 import { listJobs } from './services/careers-services';
 import Navigationbar from '../Navigationbar';
-
+import ClipLoader from "react-spinners/ClipLoader";
 
 const CareerListing = () => {
   const navigate = useNavigate()
@@ -103,7 +103,13 @@ const CareerListing = () => {
   );
 
   const loadingWidget = () => {
-    return (<h2>Loading.. </h2>)
+    return (<ClipLoader
+      color={"#9ba7f6"}
+      loading={loading}
+      size={150}
+      aria-label="Loading Spinner"
+      data-testid="loader"
+    />)
   }
 
   const renderJobDetailsCard = (job: jobListType | null) => {
