@@ -6,9 +6,9 @@ const Careers = () => {
     <div className="careers-body">
       <div>{headerText()}</div>
         <div className="card-grid">
-          <Card imgSrc="src/assets/card1.png" title="Experienced" subtitle="Experience is the mastery gained through hands-on participation and keen observation." type="Full time"/>
-          <Card imgSrc="src/assets/card2.png" title="Early Bird" subtitle="OpprotuniiStudent who are diving into the exciting freshman of the university!" type="Part time"/>
-          <Card imgSrc="src/assets/card3.png" title="Internship" subtitle="An internship program that unlocks real-world industry experience for students!" type="Part time"/>
+          <Card imgSrc="src/assets/card1.png" title="Experienced" subtitle="Experience is the mastery gained through hands-on participation and keen observation." type="Full time" level="Expertise"/>
+          <Card imgSrc="src/assets/card2.png" title="Early Bird" subtitle="OpprotuniiStudent who are diving into the exciting freshman of the university!" type="Part time" level="EarlyBird"/>
+          <Card imgSrc="src/assets/card3.png" title="Internship" subtitle="An internship program that unlocks real-world industry experience for students!" type="Part time" level="Fresher"/>
       </div>
     </div>
     </>

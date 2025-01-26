@@ -2,44 +2,37 @@ import '../CareersPage/careers-listing.css'
 import Dropdown from './widgets/dropdown';
 import { jobListType } from '../CareersPage/types/careers';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
 import { listJobs } from './services/careers-services';
 import Navigationbar from '../Navigationbar';
 
+
 const CareerListing = () => {
   const navigate = useNavigate()
-
+  const {state} = useLocation();
   const [jobList, setJobList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [isJobVisible, setJobVisible] = useState(false);  
   const [selectedJob, setSelectedJob] = useState<jobListType | null>(null);
+  const [jobParams,setJobParams] = useState({experience: '',location: ''})
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await listJobs("/career","/jobs","Chennai","EarlyBird"); 
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status}`); 
-        }
-        const result = await response.json();
-        setJobList(result); 
-      } catch (err) {
-      } finally {
-        setLoading(false); // Set loading to false after fetch is complete
-      }
-    };
-
-    fetchData(); // Call the async function
-  }, []); 
-
-  const generateGuid = async () => {
+  const fetchJobList = async () => {
     try {
-      console.log("on click")
+      const response = await listJobs("/career","/jobs",jobParams.location,jobParams.experience != '' ? state.expeirence : jobParams.experience); 
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`); 
+      }
+      const result = await response.json();
+      setJobList(result); 
     } catch (err) {
     } finally {
-      setLoading(false); // Set loading to false after fetch is complete
+      setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchJobList(); 
+  }, []); 
 
   const handleTileClick = (job: jobListType) => {
     console.log(isJobVisible)
@@ -50,10 +43,12 @@ const CareerListing = () => {
 
   const handleLocationSelect = (option: string) => {
     console.log('Selected location:', option);
+    setJobParams((i)=>({...i, location:option}))
   };
 
   const handleExperienceSelect = (option: string) => {
     console.log('Selected experience:', option);
+    setJobParams((i)=>({...i, experience:option}))
   };
 
   const renderJobCard = (job: jobListType, index: number) => (
@@ -75,14 +70,14 @@ const CareerListing = () => {
         </p>
         <div className="job-search-widget">
           <div className="search-bar">
-            <Dropdown options={['Location 1', 'Location 2', 'Location 3']} onSelect={handleLocationSelect} defaultOption="Location" />
-            <Dropdown options={['Experience 1', 'Experience 2', 'Experience 3']} onSelect={handleExperienceSelect} defaultOption="Experience" />
+            <Dropdown options={['Chennai', 'Bangalore', 'Pune']} onSelect={handleLocationSelect} defaultOption="Location" />
+            <Dropdown options={['EarlyBird', 'Expertise', 'Fresher']} onSelect={handleExperienceSelect} defaultOption="Experience" />
             <div className="search-container">
               <img src="src/assets/search.png" alt="Search" height="18" width="18" />
               <input placeholder="Enter skills" className="search-input" />
               <img src="src/assets/cancel.png" alt="Clear" height="18" width="18" />
             </div>
-            <button className="find-jobs" onClick={() => generateGuid()}>Find Jobs</button>
+            <button className="find-jobs" onClick={() => fetchJobList()}>Find Jobs</button>
           </div>
         </div>
       </div>
