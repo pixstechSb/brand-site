@@ -12,6 +12,7 @@ const CareerListing = () => {
   const { state } = useLocation();
   const [jobList, setJobList] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isError, setError] = useState(false);
   const [isJobVisible, setJobVisible] = useState(false);
   const [selectedJob, setSelectedJob] = useState<jobListType | null>(null);
   const [jobParams, setJobParams] = useState({ experience: '', location: '' })
@@ -23,8 +24,11 @@ const CareerListing = () => {
         throw new Error(`Error: ${response.status}`);
       }
       const result = await response.json();
+      setLoading(false)
       setJobList(result);
     } catch (err) {
+      setError(true)
+      setLoading(false)
     } finally {
     }
   };
@@ -104,6 +108,7 @@ const CareerListing = () => {
 
   const loadingWidget = () => {
     return (
+      <>
       <div className='loaderContainer'>
         <ClipLoader
           color={"#9ba7f6"}
@@ -112,7 +117,18 @@ const CareerListing = () => {
           aria-label="Loading Spinner"
           data-testid="loader"
         />
+
+        {isError == true ? <div className='loaderContainer'>
+      <div className='errorContainer'>
+      <h3 className='errorHeader'>
+        Sorry couldn't load your request
+      </h3>
+      <h5 className='errorContent'>Please try again after sometime.</h5>
+    </div>
+    </div> : ''}
       </div>
+      </>
+      
     )
   }
 
@@ -149,7 +165,6 @@ const CareerListing = () => {
       </div>
     </div>
   );
-
   return (<>
     <Navigationbar />
     <div className='listing-main-container'>{renderHeader()}</div>

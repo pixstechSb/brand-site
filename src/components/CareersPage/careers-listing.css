@@ -224,6 +224,18 @@
   padding: 10px;
 }
 
+.errorContainer{
+  width: 100%;
+  height: 100px;
+  place-items: center;
+  border: 2px solid red;
+  background-color: rgba(146, 1, 1, 0.361);
+  border-radius: 20px;
+  color: white;
+  padding: 20px;
+  padding: 20px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .search-bar, 
