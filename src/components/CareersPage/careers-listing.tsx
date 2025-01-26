@@ -2,37 +2,37 @@ import '../CareersPage/careers-listing.css'
 import Dropdown from './widgets/dropdown';
 import { jobListType } from '../CareersPage/types/careers';
 import { useEffect, useState } from 'react';
-import { useNavigate,useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { listJobs } from './services/careers-services';
 import Navigationbar from '../Navigationbar';
 import ClipLoader from "react-spinners/ClipLoader";
 
 const CareerListing = () => {
   const navigate = useNavigate()
-  const {state} = useLocation();
+  const { state } = useLocation();
   const [jobList, setJobList] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [isJobVisible, setJobVisible] = useState(false);  
+  const [isJobVisible, setJobVisible] = useState(false);
   const [selectedJob, setSelectedJob] = useState<jobListType | null>(null);
-  const [jobParams,setJobParams] = useState({experience: '',location: ''})
+  const [jobParams, setJobParams] = useState({ experience: '', location: '' })
 
   const fetchJobList = async () => {
     try {
-      const response = await listJobs("/career","/jobs",jobParams.location,jobParams.experience != '' ? state.expeirence : jobParams.experience); 
+      const response = await listJobs("/career", "/jobs", jobParams.location, jobParams.experience != '' ? state.expeirence : jobParams.experience);
       if (!response.ok) {
-        throw new Error(`Error: ${response.status}`); 
+        throw new Error(`Error: ${response.status}`);
       }
       const result = await response.json();
-      setJobList(result); 
+      setJobList(result);
     } catch (err) {
     } finally {
-      setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchJobList(); 
-  }, []); 
+    setLoading(true);
+    fetchJobList();
+  }, []);
 
   const handleTileClick = (job: jobListType) => {
     console.log(isJobVisible)
@@ -43,12 +43,12 @@ const CareerListing = () => {
 
   const handleLocationSelect = (option: string) => {
     console.log('Selected location:', option);
-    setJobParams((i)=>({...i, location:option}))
+    setJobParams((i) => ({ ...i, location: option }))
   };
 
   const handleExperienceSelect = (option: string) => {
     console.log('Selected experience:', option);
-    setJobParams((i)=>({...i, experience:option}))
+    setJobParams((i) => ({ ...i, experience: option }))
   };
 
   const renderJobCard = (job: jobListType, index: number) => (
@@ -91,8 +91,8 @@ const CareerListing = () => {
           <h3>Design Jobs</h3>
           <div className="list-scroll">
             {
-            
-            loading ?  jobList.map((job, index) => renderJobCard(job, index)) : loadingWidget()}
+
+              jobList.length > 0 ? jobList.map((job, index) => renderJobCard(job, index)) : loadingWidget()}
           </div>
         </div>
         <div className="detail-card-container">
@@ -103,13 +103,17 @@ const CareerListing = () => {
   );
 
   const loadingWidget = () => {
-    return (<ClipLoader
-      color={"#9ba7f6"}
-      loading={loading}
-      size={150}
-      aria-label="Loading Spinner"
-      data-testid="loader"
-    />)
+    return (
+      <div className='loaderContainer'>
+        <ClipLoader
+          color={"#9ba7f6"}
+          loading={loading}
+          size={75}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
+    )
   }
 
   const renderJobDetailsCard = (job: jobListType | null) => {
@@ -120,9 +124,9 @@ const CareerListing = () => {
         <h1>{job.jobTitle}</h1>
         <h2>{job.companyName}</h2>
         <button className="find-jobs" onClick={() => {
-            navigate('/apply',{state: {jobId: job.id, jobName: job.jobTitle}})
+          navigate('/apply', { state: { jobId: job.id, jobName: job.jobTitle } })
         }
-         }>Apply Now</button>
+        }>Apply Now</button>
         <div className="icon-cards-container">
           <h2>Job Details</h2>
           <p>Here's how the job profile aligns with your profile.</p>
@@ -147,8 +151,8 @@ const CareerListing = () => {
   );
 
   return (<>
-  <Navigationbar/>
-  <div className='listing-main-container'>{renderHeader()}</div>
+    <Navigationbar />
+    <div className='listing-main-container'>{renderHeader()}</div>
   </>);
 };
 

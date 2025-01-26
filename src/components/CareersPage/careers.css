@@ -7,30 +7,32 @@
 
 .careers-header
 {
-    font-size: 32px;
+    font-size: 48px;
     background: linear-gradient(to top, #0a439f, #cf23cf);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
-    font-weight: 400;
+    font-weight: 600;
     font-family: 'Poppins';
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .careers-subheader
 {
-    font-size: xx-large;
+    font-size: 42px;
     background: linear-gradient(to top, #0a439f, #cf23cf);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
     font-weight: 400;
     font-family: 'Poppins';
     text-align: center;
-    margin: 0px 0px;
+    margin: 0px;
+    padding: 0px 0px;
 }
 
 .careers-content
 {
-    font-size: smaller;
+    font-size: 20px;
     color: gray;
     font-weight: 100;
     font-family: 'Poppins';

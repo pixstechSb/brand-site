@@ -20,7 +20,6 @@ const headerText = () => {
     return (
       <>
         <p className="careers-header">Career</p>
-        <br />
         <p className="careers-subheader">
           we're more than just a workplace
         </p>
