@@ -66,3 +66,26 @@ export const applyJobAPI = async (controller: string, uri: string, jobApply: any
 
   }
 }
+
+export const getRandomId = async (controller: string, uri: string) => {
+  try {
+    const apiResponse = await fetch(`${apiBaseUri}${controller}${uri}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Connection": "	keep-alive"
+      },
+    });
+
+    if (!apiResponse.ok) {
+      console.log("Not ok error :", apiResponse.statusText)
+      throw new Error('Network response was not ok');
+    }
+    return apiResponse;
+  } catch (error) {
+
+  }
+}

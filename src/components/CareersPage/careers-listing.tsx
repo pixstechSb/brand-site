@@ -3,7 +3,7 @@ import Dropdown from './widgets/dropdown';
 import { jobListType } from '../CareersPage/types/careers';
 import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { listJobs } from './services/careers-services';
+import { getRandomId, listJobs } from './services/careers-services';
 import Navigationbar from '../Navigationbar';
 import ClipLoader from "react-spinners/ClipLoader";
 
@@ -55,6 +55,11 @@ const CareerListing = () => {
     setJobParams((i) => ({ ...i, experience: option }))
   };
 
+  const getId = () => {
+    const result = getRandomId("/career", "/generate")
+    console.log(result)
+  }
+
   const renderJobCard = (job: jobListType, index: number) => (
     <div key={index} className="list-card" onClick={() => handleTileClick(job)}>
       <p className="listCard-Jobtitle">{job.jobTitle}</p>
@@ -81,7 +86,7 @@ const CareerListing = () => {
               <input placeholder="Enter skills" className="search-input" />
               <img src="src/assets/cancel.png" alt="Clear" height="18" width="18" />
             </div>
-            <button className="find-jobs" onClick={() => fetchJobList()}>Find Jobs</button>
+            <button className="find-jobs" onClick={() => getId()}>Find Jobs</button>
           </div>
         </div>
       </div>
