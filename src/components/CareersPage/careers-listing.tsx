@@ -6,6 +6,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { getRandomId, listJobs } from './services/careers-services';
 import Navigationbar from '../Navigationbar';
 import ClipLoader from "react-spinners/ClipLoader";
+import { EarlyBirdjobList, ExperiencedjobList, InternjobList } from './data/careers';
 
 const CareerListing = () => {
   const navigate = useNavigate()
@@ -27,8 +28,16 @@ const CareerListing = () => {
       setLoading(false)
       setJobList(response);
     } catch (err) {
-      setError(true)
       setLoading(false)
+       switch (jobParams.experience) {
+            case 'EarlyBird':
+              return EarlyBirdjobList;
+            case 'Expertise':
+              return ExperiencedjobList;
+            case 'Fresher':
+              return InternjobList;
+            default: return []}
+      //setError(true)
     } finally {
     }
   };
