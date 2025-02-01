@@ -28,15 +28,20 @@ const CareerListing = () => {
       setLoading(false)
       setJobList(response);
     } catch (err) {
+      let jobs:any = [];
       setLoading(false)
        switch (jobParams.experience) {
             case 'EarlyBird':
-              return EarlyBirdjobList;
+              jobs = EarlyBirdjobList;
+              break;
             case 'Expertise':
-              return ExperiencedjobList;
+              jobs = ExperiencedjobList;
+              break;
             case 'Fresher':
-              return InternjobList;
+              jobs = InternjobList;
+              break;
             default: return []}
+      setJobList(jobs);
       //setError(true)
       console.log(setError)
     } finally {
