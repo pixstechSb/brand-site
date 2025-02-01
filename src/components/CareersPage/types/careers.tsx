@@ -1,13 +1,14 @@
 export interface jobListType
 {
     id: number;
-    jobTitle: string;
+    Role: string;
     companyName: string;
-    location: string;
-    description: string;
-    pay: string;
-    jobType: string;
-    shift: string;
+    OfficeLocation: string;
+    Requirements: string;
+    ShiftAndSchedule: string;
+    JobType: string;
+    Pay: string;
+    JobDetails: string;
 }
 
 export interface jobApplyType{

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 const Card = ({imgSrc,title,subtitle,type,level}: any) => {
   const navigate = useNavigate();
   return (
-        <div className="widget-card" onClick={() => navigate("/careerlisting",{state: {expeirence: level }})}>
+        <div className="widget-card" onClick={() => navigate("/careerlisting",{state: {experience: level }})}>
           <div className="widget-icon-outer">
             <div className="widget-icon-inner">
               <div className="widget-icon">

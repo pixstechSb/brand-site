@@ -16,17 +16,17 @@ const CareerListing = () => {
   const [isError, setError] = useState(false);
   const [isJobVisible, setJobVisible] = useState(false);
   const [selectedJob, setSelectedJob] = useState<jobListType | null>(null);
-  const [jobParams, setJobParams] = useState({ experience: '', location: '' })
+  const [jobParams, setJobParams] = useState({ experience:  state.experience, location: '' })
 
   const fetchJobList = async () => {
     try {
-      const response = await listJobs("/career", "/jobs", jobParams.location, jobParams.experience != '' ? state.expeirence : jobParams.experience);
+      const response = await listJobs("/career", "/jobs", jobParams.location, jobParams.experience != '' ? state.experience : jobParams.experience);
       // if (!response.ok) {
       //   throw new Error(`Error: ${response.status}`);
       // }
-      // const result = await response.json();
+      const result = await response.json();
       setLoading(false)
-      setJobList(response);
+      setJobList(result.json());
     } catch (err) {
       let jobs:any = [];
       setLoading(false)
@@ -40,7 +40,8 @@ const CareerListing = () => {
             case 'Fresher':
               jobs = InternjobList;
               break;
-            default: return []}
+            default: jobs = EarlyBirdjobList; break;}
+      console.log("loaded jobs",jobs)
       setJobList(jobs);
       //setError(true)
       console.log(setError)
@@ -77,10 +78,10 @@ const CareerListing = () => {
 
   const renderJobCard = (job: jobListType, index: number) => (
     <div key={index} className="list-card" onClick={() => handleTileClick(job)}>
-      <p className="listCard-Jobtitle">{job.jobTitle}</p>
-      <p>{job.companyName}</p>
-      <p className="listCard-location">{job.location}</p>
-      <p>{job.description}</p>
+      <p className="listCard-Jobtitle">{job.Role}</p>
+      <p>{job.companyName ?? "Pixstech"}</p>
+      <p className="listCard-location">{job.OfficeLocation}</p>
+      <p>{job.Requirements}</p>
     </div>
   );
 
@@ -157,18 +158,18 @@ const CareerListing = () => {
 
     return (
       <div className="details-card">
-        <h1>{job.jobTitle}</h1>
+        <h1>{job.Role}</h1>
         <h2>{job.companyName}</h2>
         <button className="find-jobs" onClick={() => {
-          navigate('/apply', { state: { jobId: job.id, jobName: job.jobTitle } })
+          navigate('/apply', { state: { jobId: job.id, jobName: job.Role } })
         }
         }>Apply Now</button>
         <div className="icon-cards-container">
           <h2>Job Details</h2>
           <p>Here's how the job profile aligns with your profile.</p>
-          {renderDescriptionCard('src/assets/pay.png', 'Pay', job.pay)}
-          {renderDescriptionCard('src/assets/jobType.png', 'Job Type', job.jobType)}
-          {renderDescriptionCard('src/assets/shift.png', 'Shift', job.shift)}
+          {renderDescriptionCard('src/assets/pay.png', 'Pay', job.Pay)}
+          {renderDescriptionCard('src/assets/jobType.png', 'Job Type', job.JobType)}
+          {renderDescriptionCard('src/assets/shift.png', 'Shift', job.ShiftAndSchedule)}
         </div>
       </div>
     );

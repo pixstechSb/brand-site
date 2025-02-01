@@ -45,8 +45,8 @@ function JobApplyForm() {
         try {
             event.preventDefault();
             console.log("Submit handled")
-            setJobDetails((prop) => ({ ...prop, jobId: jobInfo.jobId.toString(), firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth, emailId: emailId, contactNumber: contactNumber, city: city, graduation: graduation, experience: experience, careerGap: careerGap, noticePeriod: noticePeriod, ctc: ctc, offeredCtc: offeredCtc, offerInHand: offerInHand, expectedCtc: expectedCtc, resume: resume }))
-            formData.append("jobId", jobInfo.jobId.toString())
+            setJobDetails((prop) => ({ ...prop, jobId: jobInfo.jobId, firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth, emailId: emailId, contactNumber: contactNumber, city: city, graduation: graduation, experience: experience, careerGap: careerGap, noticePeriod: noticePeriod, ctc: ctc, offeredCtc: offeredCtc, offerInHand: offerInHand, expectedCtc: expectedCtc, resume: resume }))
+            formData.append("jobId", jobInfo.jobId)
             formData.append("FirstName", firstName)
             formData.append("LastName", lastName)
             formData.append("FirstName", dateOfBirth)
