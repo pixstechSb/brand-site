@@ -1,5 +1,6 @@
 //import { createHttpClient } from '../../../Services/httpClient';
 import { apiBaseUri } from '../../../utils/constants';
+import { EarlyBirdjobList, ExperiencedjobList, InternjobList } from '../data/careers';
 
 // export const listJobs = async ( controller:string,uri:string,experience:string, location:string) => {
 //     const httpClient = createHttpClient(`${apiBaseUri}${controller}${uri}`)
@@ -15,6 +16,7 @@ import { apiBaseUri } from '../../../utils/constants';
 
 export const listJobs = async (controller: string, uri: string, experience: string, location: string) => {
   try {
+    let responseData = [];
     const response = await fetch(`${apiBaseUri}${controller}${uri}`, {
       method: 'POST',
       headers: {
@@ -31,11 +33,18 @@ export const listJobs = async (controller: string, uri: string, experience: stri
     });
 
     if (!response.ok) {
-      console.log("Not ok error :", response.statusText)
-      throw new Error('Network response was not ok');
+    switch (experience) {
+      case 'EarlyBird':
+        return EarlyBirdjobList;
+      case 'Expertise':
+        return ExperiencedjobList;
+      case 'Fresher':
+        return InternjobList;
+      default: return []
     }
-    const data = await response.json();
-    return data;
+    }
+    responseData = await response.json();
+    return responseData;
   } catch (error) {
     console.error('Fetch error:', error);
     throw error;

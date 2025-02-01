@@ -20,12 +20,12 @@ const CareerListing = () => {
   const fetchJobList = async () => {
     try {
       const response = await listJobs("/career", "/jobs", jobParams.location, jobParams.experience != '' ? state.expeirence : jobParams.experience);
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
-      }
-      const result = await response.json();
+      // if (!response.ok) {
+      //   throw new Error(`Error: ${response.status}`);
+      // }
+      // const result = await response.json();
       setLoading(false)
-      setJobList(result);
+      setJobList(response);
     } catch (err) {
       setError(true)
       setLoading(false)
