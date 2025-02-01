@@ -38,6 +38,7 @@ const CareerListing = () => {
               return InternjobList;
             default: return []}
       //setError(true)
+      console.log(setError)
     } finally {
     }
   };
