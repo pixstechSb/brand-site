@@ -19,6 +19,12 @@ export const listJobs = async (controller: string, uri: string, experience: stri
     let responseData = [];
     const response = await fetch(`${apiBaseUri}${controller}${uri}`, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Connection": "	keep-alive"
+      },
       body: JSON.stringify({
         "location": experience,
         "experience": location
@@ -51,7 +57,6 @@ export const applyJobAPI = async (controller: string, uri: string, jobApply: any
       headers: {
         'Content-Type': 'application/json',
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Headers": "Content-Type",
         "Connection": "	keep-alive"
       },
@@ -76,7 +81,6 @@ export const getRandomId = async (controller: string, uri: string) => {
       headers: {
         'Content-Type': 'application/json',
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Headers": "Content-Type",
         "Connection": "	keep-alive"
       },

@@ -102,7 +102,7 @@ const CareerListing = () => {
               <input placeholder="Enter skills" className="search-input" />
               <img src="src/assets/cancel.png" alt="Clear" height="18" width="18" />
             </div>
-            <button className="find-jobs" onClick={() => getId()}>Find Jobs</button>
+            <button className="find-jobs" onClick={() => fetchJobList()}>Find Jobs</button>
           </div>
         </div>
       </div>
