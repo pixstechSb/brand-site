@@ -3,7 +3,7 @@ import Dropdown from './widgets/dropdown';
 import { jobListType } from '../CareersPage/types/careers';
 import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { getRandomId, listJobs } from './services/careers-services';
+import {  listJobs } from './services/careers-services';
 import Navigationbar from '../Navigationbar';
 import ClipLoader from "react-spinners/ClipLoader";
 import { EarlyBirdjobList, ExperiencedjobList, InternjobList } from './data/careers';
