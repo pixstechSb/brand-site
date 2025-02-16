@@ -1,1 +1,13 @@
 export const apiBaseUri = "https://bbjg7znfog.execute-api.ap-south-1.amazonaws.com/default";
+export const card1 = "src/assets/card1.png" ;
+export const card2 = "src/assets/card2.png" ;
+export const card3 = "src/assets/card3.png" ;
+export const search = "src/assets/search.png" ;
+export const cancel = "src/assets/cancel.png" ;
+export const pay = "src/assets/pay.png" ;
+export const jobType = "src/assets/jobType.png" ;
+export const shift = "src/assets/shift.png" ;
+export const facebook = "src/assets/facebook.png" ;
+export const instagram = "src/assets/instagram.png" ;
+export const whatsapp = "src/assets/whatsapp.png" ;
+export const telegram = "src/assets/telegram.png" ;

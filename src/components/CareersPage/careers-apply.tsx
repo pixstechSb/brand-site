@@ -6,6 +6,7 @@ import Navigationbar from '../Navigationbar';
 import { jobApplyType } from './types/careers';
 import { applyJobAPI } from './services/careers-services';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
+import {instagram, facebook,telegram, whatsapp} from '../../utils/constants'
 
 function JobApplyForm() {
     const navigate = useNavigate();
@@ -130,10 +131,10 @@ function JobApplyForm() {
                         <p className='nomargin'>experience & satisfaction</p>
                     </div>
                     <div className='socialmedia-icons'>
-                        <img width={40} height={40} src="src/assets/facebook.png" />
-                        <img width={40} height={40} src='src/assets/instagram.png' />
-                        <img width={40} height={40} src='src/assets/whatsapp.png' />
-                        <img width={40} height={40} src='src/assets/telegram.png' />
+                        <img width={40} height={40} src={facebook} />
+                        <img width={40} height={40} src={instagram} />
+                        <img width={40} height={40} src={whatsapp} />
+                        <img width={40} height={40} src={telegram} />
                     </div>
                     <div>
                         {resume ? <button className="fileSelected" onClick={() => resumeButtonClick()}>{resume.name}</button> : <button className="browse-button" onClick={() => resumeButtonClick()}>

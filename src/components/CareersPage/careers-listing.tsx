@@ -7,6 +7,7 @@ import {  listJobs } from './services/careers-services';
 import Navigationbar from '../Navigationbar';
 import ClipLoader from "react-spinners/ClipLoader";
 import { EarlyBirdjobList, ExperiencedjobList, InternjobList } from './data/careers';
+import {search, cancel,pay,shift,jobType} from '../../utils/constants'
 
 const CareerListing = () => {
   const navigate = useNavigate()
@@ -93,9 +94,9 @@ const CareerListing = () => {
             <Dropdown options={['Chennai', 'Bangalore', 'Pune']} onSelect={handleLocationSelect} defaultOption="Location" />
             <Dropdown options={['EarlyBird', 'Expertise', 'Fresher']} onSelect={handleExperienceSelect} defaultOption="Experience" />
             <div className="search-container">
-              <img src="src/assets/search.png" alt="Search" height="18" width="18" />
+              <img src={search} alt="Search" height="18" width="18" />
               <input placeholder="Enter skills" className="search-input" />
-              <img src="src/assets/cancel.png" alt="Clear" height="18" width="18" />
+              <img src={cancel} alt="Clear" height="18" width="18" />
             </div>
             <button className="find-jobs" onClick={() => fetchJobList()}>Find Jobs</button>
           </div>
@@ -162,9 +163,9 @@ const CareerListing = () => {
         <div className="icon-cards-container">
           <h2>Job Details</h2>
           <p>Here's how the job profile aligns with your profile.</p>
-          {renderDescriptionCard('src/assets/pay.png', 'Pay', job.Pay)}
-          {renderDescriptionCard('src/assets/jobType.png', 'Job Type', job.JobType)}
-          {renderDescriptionCard('src/assets/shift.png', 'Shift', job.ShiftAndSchedule)}
+          {renderDescriptionCard(pay, 'Pay', job.Pay)}
+          {renderDescriptionCard(jobType, 'Job Type', job.JobType)}
+          {renderDescriptionCard(shift, 'Shift', job.ShiftAndSchedule)}
         </div>
       </div>
     );
