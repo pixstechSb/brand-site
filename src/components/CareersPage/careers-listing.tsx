@@ -71,11 +71,6 @@ const CareerListing = () => {
     setJobParams((i) => ({ ...i, experience: option }))
   };
 
-  const getId = () => {
-    const result = getRandomId("/career", "/generate")
-    console.log(result)
-  }
-
   const renderJobCard = (job: jobListType, index: number) => (
     <div key={index} className="list-card" onClick={() => handleTileClick(job)}>
       <p className="listCard-Jobtitle">{job.Role}</p>
