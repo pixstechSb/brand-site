@@ -596,7 +596,7 @@ margin-right: 50px;
 .service-cardHighlighted {
   border-radius: 60px;
   background-color: rgba(48, 50, 71, 1);
-  padding: 0 50px 0 30px;
+  padding: 20px 50px 0 30px;
   position: relative;
   min-height: 385px;
   margin-left: 30px;
